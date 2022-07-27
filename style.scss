@@ -1,0 +1,35 @@
+@mixin box($size){ 
+    width: $size;
+    height: $size;
+    background-color: rgb(random(256),random(256),random(256))
+}
+
+
+.container{
+    @include box(500px);
+    display: flex;
+
+    .child-blue{
+        @include box(200px);
+        background-color: blue;
+    }
+    .child-red{
+        @include box(100px);
+        background-color: red;
+    }
+
+    :hover{
+        background-color: black;
+    }
+}
+
+ul{
+    display: flex;
+    list-style-type: none;
+}
+
+@for $var from 1 to 100 {
+    li:nth-child(#{$var}){
+        font-size: #{$var * 10}px;
+    }
+}
